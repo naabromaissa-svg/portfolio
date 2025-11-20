@@ -1,0 +1,45 @@
+body {
+    background-clip:url("background video.mp4") ;
+    padding: 50px 5%;
+    
+}
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+    z-index: -1;        
+    opacity: 0.8;       
+}
+
+.container {
+    position: relative ;
+    height: 100%;
+    background-color: rgb(243, 239, 244);
+    border-radius: 30px; 
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+
+
+.logo {
+      font-size: 35px;
+      color:rosybrown;
+      text-decoration: double;
+
+
+
+}
+
+
+
+
+

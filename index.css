@@ -1,0 +1,388 @@
+/*----------General----------*/
+
+html, body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+overflow: hidden;
+height: auto;
+overflow-y: auto;
+}
+
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+    z-index: -1;        
+    opacity: 0.8;       
+}
+
+
+header {
+  background-color: #3A5F70;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color:#1E3A4C;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+h2 {
+color:#3A6B7E;
+margin-top: 20px;
+}
+
+h3{
+    color:#5B8FA3 ;
+    text-align: center;
+
+}
+
+h4{
+    color: #7AA9BA;
+    text-align:center;
+}
+
+p {
+font-family:cursive;
+margin: 15px 0;
+line-height: 2;
+font-size:larger;
+font-weight: 800;
+}
+
+
+footer {
+  color:#632b03;
+  text-align: center;
+  padding: 20px;
+}
+
+
+
+/*----------page1: Accueil----------*/
+
+.container{
+  display: flex;          
+  align-items: center;    
+  gap: 20px;              
+}
+
+
+.titres h1 {
+  margin: 0; 
+  text-align: left;            
+}
+
+img {
+  
+  width: 300px;     
+  height: 300px;     
+  border-radius: 50%;
+  object-fit: cover; 
+}
+
+figcaption{
+    font-family:fantasy ;
+    font-size:larger;
+    text-align: center;
+  
+}
+
+nav a {
+margin: 0 10px;
+}
+
+nav a:hover {
+text-decoration: underline;
+}
+
+
+section {
+padding: 20px;
+}
+
+
+
+/*----------page2: A propos----------*/
+
+
+.box-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    width: 80%;
+    margin: 30px auto;
+}
+
+.box {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    background:rgb(219, 237, 219);
+    padding: 20px;
+    border-radius: 40px;
+    color:black;
+}
+
+.box input {
+    display: none;
+}
+
+.box-title {
+    font-size: 30px;
+    font: weight 500px;;
+    cursor: pointer;
+    display: block;
+    text-align: center; 
+}
+
+.box-list {
+    font-size: 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.3s ease;
+    padding-left: 15px;
+}
+
+.box input:checked ~ .box-list {
+    max-height: 500px; 
+}
+
+
+/*----------page3: Parcours----------*/
+
+.parcours-section {
+    width: 90%;
+    margin: 50px auto;
+    font-family: Arial, sans-serif;
+}
+
+
+
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+    padding-bottom: 50px;
+}
+
+.event {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    opacity: 0;
+    transform: translateY(20px);
+    animation:appear 1s forwards ;
+}
+
+.event:nth-child(1) { animation-delay: 0.5s; }
+.event:nth-child(2) { animation-delay: 1.5s; }
+.event:nth-child(3) { animation-delay: 2.5s; }
+.event:nth-child(4) { animation-delay: 3.5s; }
+
+@keyframes appear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.event.left { left: 50; }
+.event.right { left: 50%; }
+
+.event::after {               /*----boulles devant chaque box----*/
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: #5B8FA3;
+    border: 4px solid  #632b03;
+    top: 20px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.event.right::after { left: -10px; }
+
+.content {
+    padding: 20px;
+    background-color:#ECFAE5;
+    color: black;
+    border-radius: 8px;
+    position: relative;
+    border-radius: 10%;
+}
+
+@media screen and (max-width: 768px) {
+    .event {
+        width: 100%;
+        left: 0 !important;
+        margin-bottom: 20px;
+    }
+    .event.right::after,
+    .event.left::after { left: -10px; }
+}
+
+
+
+/*----------Page4: Services----------*/
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.intro-box {
+    background-color:rgb(215, 234, 215); 
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.service-box {
+    background-color: whitesmoke;
+    color:black;
+    padding: 25px;
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.service-box p {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/*----------Page5 :Contact----------*/
+
+
+.contact-section {
+    width: 90%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.contact-section h1 {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 40px;
+}
+
+/* Container : deux colonnes */
+.contact-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Partie gauche : contact info */
+.contact-info {
+    flex: 1;
+    background-color:rgb(135, 203, 186); 
+    color:rgb(96, 42, 16);
+    padding: 30px;
+    border-radius: 15px;
+    min-width: 250px;
+   
+}
+
+.contact-info h2 {
+    margin-bottom: 20px;
+}
+
+
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Partie droite : formulaire */
+.contact-form {
+    flex: 1;
+    background-color: ;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    min-width: 250px; 
+}
+
+.contact-form form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact-form form input,
+.contact-form form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.contact-form form button {
+    background-color:rgb(83, 178, 154);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+
+
+/* Responsive : sur mobile les colonnes s’empilent */
+@media screen and (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+
+
+
